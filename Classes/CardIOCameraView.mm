@@ -141,16 +141,6 @@
       [self addSubview:self.lightButton];
     }
 
-    // Set up logo
-    NSString *logoImageName = config.useCardIOLogo ? @"card_io_logo.png" : @"paypal_logo.png";
-    _logoView = [[UIImageView alloc] initWithImage:[[CardIOBundle sharedInstance] imageNamed:logoImageName]];
-    self.logoView.alpha = kLogoAlpha;
-    self.logoView.isAccessibilityElement = YES;
-    self.logoView.accessibilityLabel = (config.useCardIOLogo
-                                        ? CardIOLocalizedString(@"card_io_logo",config.languageOrLocale, nil) // card.io
-                                        : CardIOLocalizedString(@"paypal_logo", config.languageOrLocale, nil)); // PayPal
-    [self addSubview:self.logoView];
-    
 #if CARDIO_DEBUG
 // This can be useful for debugging dynamic changes, such as brightness, torch setting, etc.
 //    _debugTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 300, 20)];
